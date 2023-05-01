@@ -486,7 +486,7 @@ class ZSpotify:
             # Add album name to filename
             if self.album_in_filename:
                 filename = f"{album_name} - " + filename
-            filename = f"{artist_name} - " + filename
+            filename = f"{artist_name[:50]} - " + filename
 
         elif caller == "show":
             basepath = path or self.episodes_dir
@@ -494,11 +494,11 @@ class ZSpotify:
 
         elif caller == "episode":
             basepath = path or self.episodes_dir
-            filename = f"{artist_name} - {audio_number}. {audio_name}.{audio_format}"
+            filename = f"{artist_name[:50]} - {audio_number}. {audio_name}.{audio_format}"
 
         else:
             basepath = path or self.music_dir
-            filename = f"{artist_name} - {audio_name}.{audio_format}"
+            filename = f"{artist_name[:50]} - {audio_name}.{audio_format}"
 
         # Sanitize and set full path once
         filename = self.sanitize_data(filename)
